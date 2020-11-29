@@ -72,6 +72,7 @@ export const typographyStyles: TypographyStyles = {
   Paragraph: {
     fontSize: 1,
     fontWeight: 500,
+    lineHeight: '1.5',
     my,
     as: 'p',
     color: 'tertiary'
@@ -88,6 +89,12 @@ export const typographyStyles: TypographyStyles = {
     fontSize: 1,
     color: 'primary'
   },
+  Span: {
+    fontWeight: 'inherit',
+    fontSize: 1,
+    display: 'inline',
+    as: 'span'
+  }
 };
 
 /**
@@ -122,5 +129,6 @@ export const Typography: TypographyComponentProps = {
   Lead: createTextComponent(typographyStyles.Lead, 'Lead'),
   Paragraph: createTextComponent(typographyStyles.Paragraph, 'Paragraph'),
   Small: createTextComponent(typographyStyles.Small, 'Small'),
+  Span: createTextComponent(typographyStyles.Span, 'Span'),
   Link: Link,
 };

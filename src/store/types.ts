@@ -1,7 +1,8 @@
 import { Reducer, Dispatch } from 'react';
 import { LinkProps, RouteProps } from 'react-router-dom';
 import { DefaultTheme } from 'styled-components';
-import { SpaceProps, SizeProps, TextStyleProps, ShadowProps, ColorProps, TypographyProps, DisplayProps, LineHeightProps } from 'styled-system';
+import { SpaceProps, SizeProps, TextStyleProps, ShadowProps, ColorProps, TypographyProps, DisplayProps, LineHeightProps, LayoutProps, PositionProps, FlexboxProps, BorderProps } from 'styled-system';
+import { buttonVariants } from '../components/Utils';
 import { init, setLocale, setTheme } from './actions';
 /**
  * @revision
@@ -140,18 +141,56 @@ export interface FontFamily {
   serif: string;
 }
 
+/** Common style types */
+export type CommonTypeProps = 
+  | SpaceProps
+  | ColorProps
+  | DisplayProps
+
+
+/** Border type */
+export type BorderTypeProps =
+  | BorderProps
+  | ShadowProps
+
 /** TextPrimitive TextPrimitiveProps */
 export type TextPrimitiveProps =
+  | CommonTypeProps
   | TypographyProps
   | WhiteSpaceProps
-  | ColorProps
   | ShadowProps
-  | SpaceProps
   | SizeProps
   | TextStyleProps
-  | DisplayProps
   | LineHeightProps
-  | { as?: keyof JSX.IntrinsicElements | React.ComponentType<any> };
+  | { 
+  as?: keyof JSX.IntrinsicElements | React.ComponentType<any> 
+};
+
+/** Box Type */
+export type BoxProps = 
+  | CommonTypeProps
+  | PositionProps
+  | LayoutProps
+  | FlexboxProps
+
+/** Button Variants */
+export type ButtonVariantsType = ReturnType<typeof buttonVariants>;
+
+/** ButtonPrimitive */
+export type ButtonPrimitiveProps = 
+  | TextPrimitiveProps
+  | BorderTypeProps
+  | ButtonVariantsType
+
+
+
+/** Col typr */
+export type ColType = {
+  xs?: number
+  sm?: number
+  md?: number
+  lg?: number
+};
 
 /** Typography Component Group Spec */
 export interface TypographyStyles {
@@ -165,6 +204,7 @@ export interface TypographyStyles {
   Paragraph: TextPrimitiveProps;
   Small: TextPrimitiveProps;
   Link: TextPrimitiveProps;
+  Span: TextPrimitiveProps;
 }
 
 /** WhiteSpace temporal interface */
@@ -189,6 +229,7 @@ export interface TypographyComponentProps {
   Paragraph: React.FC<TextPrimitiveProps>;
   Small: React.FC<TextPrimitiveProps>;
   Link: React.FC<AnchorProps>;
+  Span: React.FC<TextPrimitiveProps>
 }
 
 export interface PresetTheme extends DefaultTheme {
@@ -206,3 +247,4 @@ export interface PresetTheme extends DefaultTheme {
 export type AppThemes = {
   [index: string]: PresetTheme;
 }
+

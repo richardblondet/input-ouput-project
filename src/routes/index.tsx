@@ -23,10 +23,11 @@ import { PrivateRoute } from '../components/Utils';
 
 const Home = lazy(() => import('./home'));
 const About = lazy(() => import('./about'));
-const Profile = lazy(() => import('./profile'));
+// const Profile = lazy(() => import('./profile'));
 const Auth = lazy(() => import('./auth'));
 const Page404 = lazy(() => import('./404'));
 const Page403 = lazy(() => import('./403'));
+const Dashboard = lazy(() => import('./dashboard'));
 
 /** Routes Component */
 const Routes = () => (
@@ -38,7 +39,10 @@ const Routes = () => (
         <Route path="/about" component={About} />
         
         {/* Private Routes */}
-        <PrivateRoute path="/me" component={Profile} isAuthenticated={true} />
+        {/* <PrivateRoute path="/me" component={Profile} isAuthenticated={true} /> */}
+
+        {/* Dashboard */}
+        <Route path="/dashboard" component={Dashboard} />
         
         {/* "Utility" routes */}
         <Route path="/auth" component={Auth} />

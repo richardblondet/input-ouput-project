@@ -157,13 +157,13 @@ export const fonts: FontFamily = {
 /** fontSizes for this theme. They are modular */
 export const fontSizes: Array<string> = [
   // 12, 14, 16, 20, 24, 32, 48, 64, 96
-  modularScale(-1), 
-  modularScale(0), 
-  modularScale(1), 
-  modularScale(2), 
-  modularScale(2.7), 
-  modularScale(3.3), 
-  modularScale(4)
+  modularScale(-1), // 0
+  modularScale(0), // 1
+  modularScale(1), // 2
+  modularScale(2), // 3
+  modularScale(2.7), // 4
+  modularScale(3.3), // 5
+  modularScale(4) // 6
 ];
 
 /** Radio value */
