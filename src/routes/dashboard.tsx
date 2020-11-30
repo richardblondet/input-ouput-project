@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import { FiHome, FiEdit3, FiLayout } from "react-icons/fi";
+import { FiHome, FiEdit3, FiLayout } from 'react-icons/fi';
 import { Route, RouteComponentProps, RouteProps } from 'react-router-dom';
 import { Loading } from '../components/Loaders';
 import Logo from '../components/Logo';
