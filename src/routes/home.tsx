@@ -3,12 +3,13 @@ import { Typography } from '../components/Typography';
 import { Box, Container, Row, Col, Navbar, Button } from '../components/Utils';
 import Logo from '../components/Logo';
 import { FiEdit2 } from 'react-icons/fi';
+import { useContent } from '../store/hooks';
 
 const { Fragment } = React;
 const { H1, H5, Paragraph, Span, Link } = Typography;
 
 const Home = () => {
-  
+  const { content } = useContent();
   return (
     <Fragment>
       {/* Navbar */}
@@ -27,12 +28,13 @@ const Home = () => {
               <Paragraph color="secondary">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime corrupti repudiandae impedit ullam eveniet id aperiam, dolorum delectus! Quam, quas? Quibusdam explicabo autem ullam illo quaerat laborum vel tempora aliquam?
               </Paragraph>
-              <Link to="/dashboard" as="div">
+              <Link to="/dashboard" as="span">
                 <Button fontWeight={700} py="m" px="l" type="primary">
                   <Box mr=".375rem" display="inline" position="relative" top={3}><FiEdit2 /></Box>
                   Edit this Page
                 </Button>
               </Link>
+              <code>{(content.date as Date).toISOString().split('T')[0]}</code>
             </Col>
           </Row>
         </Container>

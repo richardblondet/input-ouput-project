@@ -1,5 +1,5 @@
-import { ApplicationStoreState, ApplicationStoreReducerActions, IntlStoreState, IntlStoreReducerActions } from './types';
-import { APP_INIT, APP_SET_THEME, INTL_SET_LOCALE } from './actions';
+import { ApplicationStoreState, ApplicationStoreReducerActions, IntlStoreState, IntlStoreReducerActions, Json } from './types';
+import { APP_INIT, APP_SET_OUTPUT_DATE, APP_SET_OUTPUT_EDITOR, APP_SET_THEME, INTL_SET_LOCALE } from './actions';
 import { createReducer } from './utils';
 import { ApplicationState, IntlState } from './states';
 
@@ -21,7 +21,25 @@ export const ApplicationReducer = createReducer<ApplicationStoreState, Applicati
   [APP_SET_THEME]: (state = ApplicationState, action):ApplicationStoreState => {
     return {
       ...state,
-      theme: action.payload
+      theme: (action.payload as string)
+    }
+  },
+  [APP_SET_OUTPUT_DATE]: (state = ApplicationState, action):ApplicationStoreState => {
+    return {
+      ...state,
+      content: {
+        ...state.content,
+        date: (action.payload as Date)
+      }
+    }
+  },
+  [APP_SET_OUTPUT_EDITOR]: (state = ApplicationState, action):ApplicationStoreState => {
+    return {
+      ...state,
+      content: {
+        ...state.content,
+        editor: (action.payload as Json)
+      }
     }
   }
 });

@@ -1,7 +1,7 @@
-import { useCallback, useContext, useEffect, useLayoutEffect, useMemo } from 'react';
-import { setLocale, setTheme } from './actions';
+import { useCallback, useContext, useEffect, useLayoutEffect, useMemo, useState } from 'react';
+import { setOuputDate, setLocale, setTheme, setOutputEditor } from './actions';
 import { ApplicationStore, IntlStore } from './providers';
-import { TranslateFunctionOptions } from './types';
+import { Json, TranslateFunctionOptions } from './types';
 
 /**
  * Custom Application Hooks
@@ -74,3 +74,25 @@ export const useTheme = (name: string) => {
   /** Them vars */
   return { theme, setTheme } as const;
 };
+
+/**
+ * useContent
+ * 
+ * For passing data around
+ */
+export const useContent = () => {
+  const { state, dispatch } = useContext(ApplicationStore);
+  const { content: oldValues } = state;
+  
+  const content = useMemo(() => oldValues, [oldValues]);
+  
+  const setDate = useCallback((date:Date) => {
+    dispatch(setOuputDate(date));
+  }, [content.date]);
+
+  const setEditorValue = useCallback((content:Json) => {
+    dispatch(setOutputEditor(content));
+  }, [content.editor])
+  
+  return { content, setDate, setEditorValue } as const;
+}

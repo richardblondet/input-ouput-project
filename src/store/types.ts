@@ -3,7 +3,7 @@ import { LinkProps, RouteProps } from 'react-router-dom';
 import { DefaultTheme } from 'styled-components';
 import { SpaceProps, SizeProps, TextStyleProps, ShadowProps, ColorProps, TypographyProps, DisplayProps, LineHeightProps, LayoutProps, PositionProps, FlexboxProps, BorderProps } from 'styled-system';
 import { buttonVariants } from '../components/Utils';
-import { init, setLocale, setTheme } from './actions';
+import { init, setOuputDate, setLocale, setTheme, setOutputEditor } from './actions';
 /**
  * @revision
  * 
@@ -47,16 +47,23 @@ export type ErrorBoundaryState = {
 export type ErrorHandler = 
   (error: Error, info: React.ErrorInfo) => void
 
+
+export interface ContentInterface { 
+  editor?: Json,
+  date?: Date
+};
+
 /** ApplicationStoreReducerState */
 export interface ApplicationStoreState extends State {
   readonly version: string;
   readonly name: string;
   theme: string;
+  content: ContentInterface;
 }
 
 /** ApplicationStoreReducerState Actions */
 export type ApplicationStoreReducerActions = ReturnType< 
-  typeof setTheme | typeof init
+  typeof setTheme | typeof init | typeof setOuputDate | typeof setOutputEditor
 >;
 /** end ApplicationStoreReducerState */
 

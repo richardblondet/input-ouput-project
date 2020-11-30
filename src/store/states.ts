@@ -13,6 +13,7 @@ export const ApplicationState: ApplicationStoreState = {
   name: getAppName(),
   version: getAppVersion(),
   theme: 'preset',
+  content: {}
 };
 
 /** Intl */

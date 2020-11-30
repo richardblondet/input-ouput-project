@@ -8,7 +8,7 @@ import { Box, Content, ListItem, ListItemIcon, ListTitle, Menu, Navbar, SideBar,
 
 const { H5, Link } = Typography;
 
-const Overview = lazy(() => import('./dashboard.overview'));
+// const Overview = lazy(() => import('./dashboard.overview'));
 const Theme = lazy(() => import('./dashboard.theme'));
 const ContentPage = lazy(() => import('./dashboard.content'));
 
@@ -65,9 +65,9 @@ const Dashboard: React.FC<RouteComponentProps>  = ({ match }) => {
       </SideBar>
       <Content key="Content">
         <Suspense fallback={<Loading />}>
-          <Route path={`${path}`} exact component={Overview} />
+          <Route path={`${path}`} exact component={ContentPage} />
           <Route path={`${path}/theme`} exact component={Theme} />
-          <Route path={`${path}/content`} exact component={ContentPage} />
+          {/* <Route path={`${path}/content`} exact component={ContentPage} /> */}
         </Suspense>
       </Content>
     </Wrapper>
