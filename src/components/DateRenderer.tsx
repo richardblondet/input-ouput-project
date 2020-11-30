@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { FiCalendar } from 'react-icons/fi';
-// import Tilt from 'react-tilt';
-
-import { Box, TextPrimitive } from './Utils';
+import VanillaTilt from 'vanilla-tilt';
+import { Box } from './Utils';
 import { Typography } from './Typography';
-const { H2, H6, Span } = Typography;
 
 /**
  * calendar icon
@@ -17,6 +15,7 @@ const { H2, H6, Span } = Typography;
  */
 const boxShadow = () => 'box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.1);';
 const borderRadius = () => 'border-radius: 7px;';
+const { H2, H6, Span } = Typography;
 
 const DateContainer = styled(Box).attrs({
   backgroundColor: '#ffffff',
@@ -36,15 +35,19 @@ const DateIcon = styled(Box).attrs({
 `;
 
 export default ({ date }:{ date: Date }) => {
-  
+  const tiltRef = useRef(null);
   const day = date.getDate();
   const month = date.getMonth();
   const year = date.getFullYear();
 
   const formatted = `${day}.${month}.${year}`;
-
+  
+  useLayoutEffect(() => {
+    VanillaTilt.init((tiltRef.current as unknown as HTMLElement));
+  }, [tiltRef]);
+  
   return (
-    <Box position="relative" margin="0 auto">
+    <Box position="relative" margin="0 auto" ref={tiltRef}>
       <DateContainer position="relative" zIndex={10}>
         <Box display="flex" style={{ alignItems: 'center' }}>
           <Box p="s">
