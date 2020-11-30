@@ -306,6 +306,7 @@ export const Button = styled(ButtonPrimitive).attrs({
   position: 'relative',
   minWidth: '250px',
   maxWidth: '100%',
+  display: 'inline-block',
 })<ButtonPrimitiveProps>`
   border: none;
   outline: none;
