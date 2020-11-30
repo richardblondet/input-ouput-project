@@ -1,24 +1,18 @@
 import React from 'react';
+import { ThemeProvider } from 'styled-components';
 import { ErrorBoundary } from './components/Errors';
 import Routes from './routes';
 import { ApplicationStoreProvider, IntlStoreProvider } from './store/providers';
-import { composeComponent, getTheme } from './store/utils';
-import { ThemeProvider } from 'styled-components';
+import { composeComponent } from './store/utils';
 import GlobalStyle from './App.styles';
-
+import { useTheme } from './store/hooks';
+import themes from './themes';
 /**
  * Application
  * 
  * Towards @version 1.0.0
  */
-// const System: React.FC<{}> = ({ children }) => {
-  // const theme = getTheme('preset');
-  
-  // console.log('theme', theme);
-  // return <ThemeProvider theme={theme}>{children}</ThemeProvider>
-  // };
-  
-const theme = getTheme('preset');
+
 /** 
  * Compose Providers 
  * 
@@ -29,19 +23,32 @@ const theme = getTheme('preset');
 const ComposedProviders = composeComponent([
   props => <ApplicationStoreProvider {...props} />,
   props => <IntlStoreProvider {...props} />,
-  props => <ThemeProvider theme={theme} {...props} />,
-  props => <ErrorBoundary {...props} />,
 ]);
+
+const System: React.FC<React.ReactNode> = ({ children }) => {
+  const { theme } = useTheme();
+  const themeObj = themes[theme];
+  
+  console.log('theme', theme, themeObj);
+
+  return (
+    <ThemeProvider theme={themeObj}>
+      <ErrorBoundary>{children}</ErrorBoundary>
+    </ThemeProvider>
+  );
+};
 
 const { Fragment } = React;
 
 const App = () => {
   return (
     <ComposedProviders>
-      <Fragment>
-        <GlobalStyle />
-        <Routes />
-      </Fragment>
+      <System>
+        <Fragment>
+          <GlobalStyle />
+          <Routes />
+        </Fragment>
+      </System>
     </ComposedProviders>
   );
 }

@@ -51,28 +51,30 @@ export const useIntl = () => {
  * API for interacting with the Application provider
  * and managing theme
  */
-export const useTheme = (name: string) => {
-  const { state: { theme }, dispatch } = useContext(ApplicationStore);
-  const selectedTheme = useMemo(() => theme, [theme]);
+export const useTheme = () => {
+  const { state, dispatch } = useContext(ApplicationStore);
+  const { theme:oldValue } = state;
+  
+  const theme = useMemo(() => oldValue, [oldValue]);
   
   /** Set the theme  */
-  useEffect(() => dispatch(setTheme(selectedTheme)));
+  const selectTheme = useCallback((seletedTheme: string) => {
+    console.log('seletedTheme', seletedTheme);
+    dispatch(setTheme(seletedTheme));
+  }, [theme]);
   
-  /** Set the theme  */
+  /** Set the theme on body  */
   useLayoutEffect(
     () => {
-      // Update css variables in document's root element
-      document.body.classList.add(`selected-theme-${selectedTheme}`);
-    }, [selectedTheme] 
+      if (theme) {
+        // Update css variables in document's root element
+        document.body.classList.add(`selected-theme-${theme}`);
+      }
+    }, [theme] 
   );
 
-  /** Fire inmediately to use */
-  if (name) {
-    setTheme(selectedTheme);
-  }
-
   /** Them vars */
-  return { theme, setTheme } as const;
+  return { theme, selectTheme } as const;
 };
 
 /**

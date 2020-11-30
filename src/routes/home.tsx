@@ -34,11 +34,13 @@ const Home = () => {
               <Paragraph color="secondary">
                 {editor[locale]}
               </Paragraph>
-            
-              <Button fontWeight={700} py="m" px="l" type="primary">
-                <Box mr=".375rem" display="inline" position="relative" top={3}><FiEdit2 /></Box>
-                Edit this Page
-              </Button>
+
+              <Link as="span" to="/dashboard">
+                <Button fontWeight={700} py="m" px="l" type="primary">
+                  <Box mr=".375rem" display="inline" position="relative" top={3}><FiEdit2 /></Box>
+                  Edit this Page
+                </Button>
+              </Link>
             </Box>
             <Box width={[ 1, 1/2 ]} display="flex" style={{ alignSelf: 'center', flexWrap: "wrap" }}>
               <DateRenderer date={date} />

@@ -8,9 +8,7 @@ import React, {
   ComponentType,
   Component,
   ErrorInfo,
-  FC
 } from 'react';
-import { Redirect, Route } from 'react-router-dom';
 import { shade, tint } from 'polished';
 import { 
   Action, 
@@ -291,7 +289,7 @@ export const generatePalette = (color:string, direction:typeof shade | typeof ti
  * Creates a component passing the base dynamic
  * component. 
  */
-export const createTextComponent: (styleProps: TextPrimitiveProps, displayName?: string) => FC<TextPrimitiveProps> = (styleProps, displayName) => {
+export const createTextComponent: (styleProps: TextPrimitiveProps, displayName?: string) => React.FC<TextPrimitiveProps> = (styleProps, displayName) => {
   const component: React.FC<TextPrimitiveProps> = props => (
     <TextPrimitive {...styleProps} {...props}>
       {props.children}

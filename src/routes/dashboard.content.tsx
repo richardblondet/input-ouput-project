@@ -36,9 +36,9 @@ const DashboardContent = () => {
           <DayPicker onDayClick={(e) => setDate(e)} />
           <hr />
           <label>Editor Field: </label>
-          <select onChange={({ target }) => setLanguage(target.value)}>
+          <select defaultValue={locale} onChange={({ target }) => setLanguage(target.value)}>
             {availableLanguages.map((language) => {
-              return <option selected={language === locale} key={language} value={language}>{language}</option>;
+              return <option key={language} value={language}>{language}</option>;
             })}
           </select>
           {availableLanguages.map((lang) => {
