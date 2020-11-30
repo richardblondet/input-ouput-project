@@ -1,5 +1,7 @@
 /// <reference types="react-scripts" />
 
+import { ComponentElement, JSXElementConstructor } from "react";
+
 // import original module declarations
 // import { DefaultTheme } from 'styled-components';
 
@@ -14,4 +16,8 @@
 //       secondary: string
 //     }
 //   }
+// }
+
+// declare module 'react-tilt' {
+//   export interface Tilt extends JSXElementConstructor {};
 // }

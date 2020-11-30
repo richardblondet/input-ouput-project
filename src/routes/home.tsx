@@ -21,16 +21,16 @@ const Home = () => {
         </Container>
       </Navbar>
       {/* Hero Section */}
-      <Box py="6rem" backgroundColor="white">
+      <Box py="6rem" backgroundColor="primary-tints.100">
         <Container>
           <Row>
             <Col sm={6}>
               <H1 fontWeight="900">Welcome to the <br />
                 <Span color="primary"> Input/Outout</Span> Project</H1>
                 
-                  <Paragraph color="secondary">
-                    {editor[locale]}
-                  </Paragraph>
+              <Paragraph color="secondary">
+                {editor[locale]}
+              </Paragraph>
 
               <Link to="/dashboard" as="span">
                 <Button fontWeight={700} py="m" px="l" type="primary">
@@ -38,6 +38,8 @@ const Home = () => {
                   Edit this Page
                 </Button>
               </Link>
+            </Col>
+            <Col sm={6}>
               <code>{date.toISOString().split('T')[0]}</code>
             </Col>
           </Row>

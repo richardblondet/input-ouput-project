@@ -53,6 +53,9 @@ const reset = css`
     border-collapse: collapse;
     border-spacing: 0;
   }
+  *, ::after, ::before {
+    box-sizing: border-box;
+  }
 `
 /** GlobalStyle */
 const GlobalStyle = createGlobalStyle`

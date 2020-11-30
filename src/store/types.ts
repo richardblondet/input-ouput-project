@@ -1,7 +1,7 @@
 import { Reducer, Dispatch } from 'react';
 import { LinkProps, RouteProps } from 'react-router-dom';
 import { DefaultTheme } from 'styled-components';
-import { SpaceProps, SizeProps, TextStyleProps, ShadowProps, ColorProps, TypographyProps, DisplayProps, LineHeightProps, LayoutProps, PositionProps, FlexboxProps, BorderProps } from 'styled-system';
+import { SpaceProps, SizeProps, TextStyleProps, ShadowProps, ColorProps, TypographyProps, DisplayProps, LineHeightProps, LayoutProps, PositionProps, FlexboxProps, BorderProps, FlexProps } from 'styled-system';
 import { buttonVariants } from '../components/Utils';
 import { init, setOuputDate, setLocale, setTheme, setOutputEditor } from './actions';
 /**
@@ -153,12 +153,9 @@ export type CommonTypeProps =
   | SpaceProps
   | ColorProps
   | DisplayProps
-
-
-/** Border type */
-export type BorderTypeProps =
   | BorderProps
   | ShadowProps
+
 
 /** TextPrimitive TextPrimitiveProps */
 export type TextPrimitiveProps =
@@ -179,6 +176,7 @@ export type BoxProps =
   | PositionProps
   | LayoutProps
   | FlexboxProps
+  | FlexProps
 
 /** Button Variants */
 export type ButtonVariantsType = ReturnType<typeof buttonVariants>;
@@ -186,9 +184,7 @@ export type ButtonVariantsType = ReturnType<typeof buttonVariants>;
 /** ButtonPrimitive */
 export type ButtonPrimitiveProps = 
   | TextPrimitiveProps
-  | BorderTypeProps
   | ButtonVariantsType
-
 
 
 /** Col typr */
@@ -254,4 +250,5 @@ export interface PresetTheme extends DefaultTheme {
 export type AppThemes = {
   [index: string]: PresetTheme;
 }
+
 

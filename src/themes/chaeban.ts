@@ -1,68 +1,22 @@
 import { darken, lighten, modularScale, shade, tint } from 'polished';
 import { FontFamily, PresetTheme, Space, ThemeColors } from '../store/types';
-// import { generatePalette } from '../store/utils';
 
 /**
- * Naming keeps getting harder
- * 
- * I read Andy Barnes
- * @see {@link https://medium.com/swlh/colour-variable-names-that-scale-28663ae04052}
- * And also Tom Osborne
- * @see {@link https://www.viget.com/articles/naming-colors/}
- * about naming color variables and I share very similar point of views.
- * Because this is a theme base system, I think having a palette with custom
- * names for its colors makes the theme unique or allows it to have its own
- * personality.
- * 
- * So this theme personality is inspired in palette 6
- * @see {@link https://www.happyhues.co/palettes/6}
- */
+* Chaeban templete
+*/
 export const palette = {
-  blueRoyal: '#6246EA',
-  shark: '#2b2c34',
+  froly: '#f2817b',
+  smaltBlue: '#4C8D94',
   darkWhite: '#fffffe',
   red: '#e96d62',
   yellow: '#f7c377',
   green: '#65d0a6',
   blue: '#17a2b8',
 };
-/**
- * After defining a palette, we should then 
- * decide how this colors will be apply throughout the 
- * theme. But how do we know? Well...
- * 
- * ...what colors should a theme have?
- * I guess it comes down to the attrs of the system/app/etc. 
- * - A primary color (cta, forward thinking/actions)
- * - A lightened primary color 
- * - A darkened primary color
- * - A secondary color (headlines, strongs, strokes:focus, neutral thinking)
- * - A lightened secondary color (highlights)
- * - A darkened secondary color (links)
- * - A tertiary color (paragraphs)
- * - A red color for danger and errors
- * - A yellow color for warnings
- * - A green for success
- * - A blue for information
- * - 9 black/shades colors from primary (overlays, quotes, addrs, transparents, etc)
- * - 9 white/tints colors from primary (background tones, utils)
- * - 9 black/shades colors from secondary (overlays, quotes, addrs, transparents, etc)
- * - 9 white/tints colors secondary (colors tones)
- * 
- * ...I guess. So, the <ThemeColors> interface should reflect this spec.
- * 
- * P.s.
- * Some of these colors can be generated based on others using
- * tools like 'polished' to darken/lighten. The 9 white and 9 black
- * colors can be generated from the primary and secondary colors using
- * shade/tint
- * 
- * We can use the @react-theming/storybook-addon to preview and tweak
- * values of the theme
- */
+
 const {
-  blueRoyal: primary,
-  shark: secondary,
+  froly: primary,
+  smaltBlue: secondary,
   darkWhite: white,
   red,
   yellow,
@@ -79,7 +33,7 @@ export const colors: ThemeColors = {
   yellow,
   green,
   blue,
-  'tertiary': lighten(0.25, secondary),
+  'tertiary': '#572917',
   'primary-lightened': lighten(0.25, primary),
   'primary-darkened': darken(0.25, primary),
   'secondary-lightened': lighten(0.25, secondary),
@@ -96,15 +50,15 @@ export const colors: ThemeColors = {
     900: shade(9*0.1, primary)
   },
   'primary-tints': {
-    100: tint(9*0.11, primary),
-    200: tint(8*0.11, primary),
-    300: tint(7*0.11, primary),
-    400: tint(6*0.11, primary),
-    500: tint(5*0.11, primary),
-    600: tint(4*0.11, primary),
-    700: tint(3*0.11, primary),
-    800: tint(2*0.11, primary),
-    900: tint(1*0.11, primary)
+    100: tint(9*0.105, secondary),
+    200: tint(8*0.105, secondary),
+    300: tint(7*0.105, secondary),
+    400: tint(6*0.105, secondary),
+    500: tint(5*0.105, secondary),
+    600: tint(4*0.105, secondary),
+    700: tint(3*0.105, secondary),
+    800: tint(2*0.105, secondary),
+    900: tint(1*0.105, secondary)
   },
   'secondary-shades': {
     100: shade(1*0.05, lighten(0.15, secondary)),

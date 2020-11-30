@@ -8,8 +8,10 @@ import { ThemeProvider } from 'styled-components';
 import { withThemes } from '@react-theming/storybook-addon';
 import GlobalStyle from '../src/App.styles';
 import preset from '../src/themes/preset';
+import presetDark from '../src/themes/presetDark';
+import chaeban from '../src/themes/chaeban';
 
-addDecorator(withThemes(ThemeProvider, [preset]));
+addDecorator(withThemes(ThemeProvider, [preset, presetDark, chaeban]));
 
 export const decorators = [(Story) => 
   <>

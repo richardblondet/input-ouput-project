@@ -1,3 +1,4 @@
+import { rgba } from 'polished';
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import styled from 'styled-components';
@@ -18,7 +19,7 @@ import {
   position,
   variant,
 } from 'styled-system';
-import { BoxProps, ButtonPrimitiveProps, ColType, ProtectedRouteProps } from '../store/types';
+import { BoxProps, ButtonPrimitiveProps, ColType, ProtectedRouteProps, TextPrimitiveProps } from '../store/types';
 
 /**
  * Private Route Handler
@@ -95,7 +96,9 @@ export const text = compose(
  * 
  * Primitive component to create text based components from
  */
-export const TextPrimitive = styled('div')(text);
+export const TextPrimitive = styled('div')<TextPrimitiveProps>`
+  ${text}
+`;
 TextPrimitive.displayName = 'TextPrimitive';
 
 /**
@@ -198,7 +201,7 @@ export const Content = styled('div')`
 `;
 
 export const Navbar = styled(Box).attrs({
-  backgroundColor: '#ffffff',
+  backgroundColor: 'primary-tints.100',
   position: 'relative',
   zIndex: 1001,
   display: 'flex',
@@ -207,7 +210,7 @@ export const Navbar = styled(Box).attrs({
   justifyContent: 'space-between',
   padding: '.5rem 1rem',
 })`
-  box-shadow: 0 0 35px 0 rgba(154,161,171,.15);
+  box-shadow: 0 0 35px 0 ${({ theme }) => rgba(theme.colors['secondary-tints']['100'], 0.5)};
 `;
 
 export const DashboardNavbar = styled(Navbar).attrs({
