@@ -8,12 +8,12 @@ const DashboardOverview = () => {
   return (
     <Box width="100%">
       <DashboardNavbar>
-        <H5>
+        <H5 color="#959599">
           Overview
         </H5>
       </DashboardNavbar>
       <Box>
-        Content
+        Page here
       </Box>
     </Box>
   );

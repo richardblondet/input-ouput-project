@@ -4,7 +4,17 @@ import { Route, RouteComponentProps, RouteProps } from 'react-router-dom';
 import { Loading } from '../components/Loaders';
 import Logo from '../components/Logo';
 import { Typography } from '../components/Typography';
-import { Box, Content, ListItem, ListItemIcon, ListTitle, Menu, Navbar, SideBar, SideBarContent, SideBarLogo, Wrapper } from '../components/Utils';
+import { Box, 
+  Content, 
+  ListItem, 
+  ListItemIcon, 
+  ListTitle, 
+  Menu, 
+  SideBar, 
+  SideBarContent, 
+  SideBarLogo, 
+  Wrapper 
+} from '../components/Utils';
 
 const { H5, Link } = Typography;
 
@@ -19,7 +29,7 @@ const Dashboard: React.FC<RouteComponentProps>  = ({ match }) => {
     <Wrapper>
       <SideBar>
         <SideBarLogo>
-          <Logo input={{ color: 'primary-tints.100' }} />
+          <Logo input={{ color: 'primary-tints.100' }} output={{ color: 'secondary-tints.900' }} />
         </SideBarLogo>
         <Box position="relative" alignItems="flex-start" height="100%!important">
           <Box 

@@ -1,19 +1,17 @@
 import React, { useState } from 'react';
 import { Typography } from '../components/Typography';
-import { Box, DashboardNavbar } from '../components/Utils';
+import { Box, Button, DashboardNavbar } from '../components/Utils';
 import { useContent, useIntl } from '../store/hooks';
 import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 import { i18nTools } from '../store/utils';
-import { Json } from '../store/types';
-const { H5 } = Typography;
+const { H5, Link } = Typography;
 
 const DashboardContent = () => {
   const { content, setDate, setEditorValue } = useContent();
   const { locale } = useIntl();
   const { date = new Date(), editor = {} } = content;
   const { availableLanguages } = i18nTools();
-  console.log('availableLanguages', availableLanguages);
   const [language, setLanguage] = useState(locale);
   
   console.log('editor', editor);
@@ -24,9 +22,12 @@ const DashboardContent = () => {
   return (
     <Box width="100%">
       <DashboardNavbar>
-        <H5>
+        <H5 color="#959599">
           Content
         </H5>
+        <Link to="/" as={Button}>
+          Output Page
+        </Link>
       </DashboardNavbar>
       <Box px='m'>
         <form>

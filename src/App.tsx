@@ -28,8 +28,6 @@ const ComposedProviders = composeComponent([
 const System: React.FC<React.ReactNode> = ({ children }) => {
   const { theme } = useTheme();
   const themeObj = themes[theme];
-  
-  console.log('theme', theme, themeObj);
 
   return (
     <ThemeProvider theme={themeObj}>

@@ -196,7 +196,7 @@ export const ListItemIcon = styled('i')`
 export const Content = styled('div')`
   margin-left: 260px;
   overflow: hidden;
-  padding: 85px 0px 65px;
+  padding: 88px 0px 65px;
   min-height: 100vh;
 `;
 
@@ -208,16 +208,24 @@ export const Navbar = styled(Box).attrs({
   flexWrap: 'wrap',
   alignItems: 'center',
   justifyContent: 'space-between',
-  padding: '.5rem 1rem',
-})`
-  box-shadow: 0 0 35px 0 ${({ theme }) => rgba(theme.colors['secondary-tints']['100'], 0.5)};
-`;
+})``;
+Navbar.defaultProps = {
+  padding: '.9rem 1rem',
+}
 
 export const DashboardNavbar = styled(Navbar).attrs({
-  position: 'fixed',
-  width: '100%',
-  top: 0
-})``;
+  key: "DasboardNavbar"
+})`
+  position: fixed;
+  top: 0;
+  background-color:#ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 1px #efefef;
+  z-index: 1010;
+  width: calc( 100% - 260px );
+`;
 
 export const Container = styled(Box).attrs({
   width: '100%',
