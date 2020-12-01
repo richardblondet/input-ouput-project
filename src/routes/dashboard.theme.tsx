@@ -1,4 +1,5 @@
 import React from 'react';
+import { FiPower } from 'react-icons/fi';
 import styled from 'styled-components';
 import { color, ColorProps } from 'styled-system';
 import { ThemePreviewer, ThemeOptionComponent } from '../components/ThemeUtils';
@@ -52,6 +53,7 @@ const DashboardTheme = () => {
           Theme
         </H5>
         <Link to="/" as={Button}>
+          <Box mr=".375rem" display="inline" position="relative" top={3}><FiPower /></Box>
           Output Page
         </Link>
       </DashboardNavbar>

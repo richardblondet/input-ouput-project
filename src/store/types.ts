@@ -170,6 +170,11 @@ export type TextPrimitiveProps =
   as?: keyof JSX.IntrinsicElements | React.ComponentType<any> 
 };
 
+/** Image Primitive */
+export type ImagePrimitiveProps = 
+  | TextPrimitiveProps
+  | BoxProps
+
 /** Box Type */
 export type BoxProps = 
   | CommonTypeProps

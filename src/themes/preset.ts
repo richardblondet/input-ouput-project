@@ -146,7 +146,7 @@ export const space: Space = {
 export const fonts: FontFamily = {
   headings: 'Inter, Open-Sans, Helvetica, Arial, Sans-Serif;',
   paragraphs: 'Inter, Open-Sans, Helvetica, Arial, Sans-Serif;',
-  mono: 'Mono',
+  mono: 'Source Code Pro, monospace',
   serif: 'athelas, georgia, times, serif',
 };
 

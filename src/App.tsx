@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { ErrorBoundary } from './components/Errors';
 import Routes from './routes';
 import { ApplicationStoreProvider, IntlStoreProvider } from './store/providers';
 import { composeComponent } from './store/utils';
 import GlobalStyle from './App.styles';
-import { useTheme } from './store/hooks';
+import { useContent, useIntl, useTheme } from './store/hooks';
 import themes from './themes';
+import { ContentInterface, Json } from './store/types';
 /**
  * Application
  * 
@@ -27,6 +28,21 @@ const ComposedProviders = composeComponent([
 
 const System: React.FC<React.ReactNode> = ({ children }) => {
   const { theme } = useTheme();
+  const { content, setEditorValue } = useContent();
+  const { locale } = useIntl();
+  
+  let defaultContent: ContentInterface = {
+    ...content,
+  };
+
+  useEffect(() => {
+    defaultContent['editor'] = {
+      [locale]: "Hello, I'm an example content, pls make sure you edit me sometime, that'd make me happy :)"
+    };
+
+    setEditorValue((defaultContent as Json));
+  }, []);
+  
   const themeObj = themes[theme];
 
   return (
