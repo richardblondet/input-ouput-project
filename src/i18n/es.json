@@ -1,3 +1,19 @@
 {
-  "app.getting.started": "Un Kit de Desarrollo para Applicaciones en React. v%VERSION%"
+  "app.getting.started": "Un Kit de Desarrollo para Applicaciones en React. v%VERSION%",
+  "home.hero.heading.pre.project": "Bienvenidos al Proyecto",
+  "home.hero.heading.post.project": " ",
+  "home.hero.input.page.button": "Página Input",
+  "home.hero.date.label": "Fecha selecta:",
+  "home.about.heading": "Acerca de",
+  "home.about.description": "fue construido como parte de una prueba de reclutamiento.",
+  "home.about.view.on.github.link": "Ver en Github.",
+  "home.author.profession": "Desarrollador freelance fullstack",
+  "dashboard.content": "Contenido",
+  "dashboard.content.date.field.label": "Campo de fecha:",
+  "dashboard.content.selected.date": "Fecha selecta:",
+  "dashboard.content.date.field.helper": "Selecciona un día del calendario a continuación, para actualizar la fecha de la Página Input",
+  "dashboard.content.text.field.label": "Campo de texto:", 
+  "dashboard.content.text.field.helper": "Modifica el párrafo de la Página Input.", 
+  "dashboard.theme": "Tema",
+  "dashboard.navbar.output.page": "Página Output"
 }

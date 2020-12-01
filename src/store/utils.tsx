@@ -15,6 +15,7 @@ import {
   ErrorBoundaryProps, 
   ErrorBoundaryState, 
   ErrorHandler, 
+  Json, 
   Languages, 
   ProtectedRouteProps, 
   RangeColorsShape, 
@@ -26,6 +27,7 @@ import EN from '../i18n/en.json';
 import ES from '../i18n/es.json';
 import { TextPrimitive } from '../components/Utils';
 import themes from '../themes';
+import { LocaleUtils } from 'react-day-picker';
 
 /**
  * Utils 
@@ -204,8 +206,112 @@ export const i18nTools = () => {
   /** Provide avaliable languages */
   const availableLanguages = Object.keys(translations);
 
+  /** Tools for the date picker */
+  const WEEKDAYS_LONG: any = {
+    'en': [
+      'Sunday',
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+    ],
+    'es': [
+      'Domingo',
+      'Lunes',
+      'Martes',
+      'Miércoles',
+      'Jueves',
+      'Viernes',
+      'Sábado',
+    ],
+  };
+
+  const WEEKDAYS_SHORT: any = {
+    'en': ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+    'es': ['Dom', 'Lun', 'Mar', 'Mier', 'Jue', 'Vie', 'Sab'],
+  };
+
+  const MONTHS: any = {
+    'en': [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ],
+    'es': [
+      'Enero',
+      'Febrero',
+      'Marzo',
+      'Abril',
+      'Mayo',
+      'Junio',
+      'Julio',
+      'Agosto',
+      'Septiembre',
+      'Octubre',
+      'Noviembre',
+      'Diciembre',
+    ],
+  };
+
+  const FIRST_DAY: any = {
+    'en': 0,
+    'es': 0,
+  };
+
+  function formatDay(d: Date, locale: string = 'en') {
+    return `${WEEKDAYS_LONG[(locale as string)][d.getDay()]}, ${d.getDate()} ${
+      MONTHS[locale][d.getMonth()]
+    } ${d.getFullYear()}`;
+  }
+
+  function formatMonthTitle(d: Date, locale = 'en') {
+    return `${MONTHS[locale][d.getMonth()]} ${d.getFullYear()}`;
+  }
+
+  function formatWeekdayShort(weekday: number, locale: string = 'en'): string {
+    return WEEKDAYS_SHORT[locale][weekday];
+  }
+
+  function formatWeekdayLong(weekday: number, locale: string = 'en') {
+    return WEEKDAYS_SHORT[locale][weekday];
+  }
+
+  function getFirstDayOfWeek(locale: string) {
+    return FIRST_DAY[locale];
+  }
+  
+  function getMonths(locale: string = 'en') {
+    return MONTHS[locale];
+  }
+
+  function parseDate(str: string, format?: string | undefined, locale?: string | undefined): Date {
+    return new Date;
+  }
+
+  const localeUtils: LocaleUtils = {
+    formatDay,
+    formatDate: formatDay,
+    formatMonthTitle,
+    formatWeekdayShort,
+    formatWeekdayLong,
+    getFirstDayOfWeek,
+    getMonths,
+    parseDate
+  };
+
   /** Them */
-  return {translations, availableLanguages, getTranslations} as const;
+  return {translations, availableLanguages, localeUtils, getTranslations} as const;
 };
 
 /**

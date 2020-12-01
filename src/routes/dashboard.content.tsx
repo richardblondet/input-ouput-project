@@ -7,6 +7,7 @@ import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 import { i18nTools } from '../store/utils';
 import { FiPower } from 'react-icons/fi';
+import LanguageSwitcher from '../components/LanguageSwitcher';
 
 const { H5, H6, Link, Paragraph, Span } = Typography;
 
@@ -28,10 +29,9 @@ const TextArea = styled('textarea')`
 
 const DashboardContent = () => {
   const { content, setDate, setEditorValue } = useContent();
-  const { locale } = useIntl();
+  const { locale, translate } = useIntl();
   const { date = new Date(), editor = {} } = content;
-  const { availableLanguages } = i18nTools();
-  const [language, setLanguage] = useState(locale);
+  const { availableLanguages, localeUtils } = i18nTools();
   
   console.log('editor', editor);
   const saveEditorField = (lang: string, value: string): void => {
@@ -42,39 +42,43 @@ const DashboardContent = () => {
     <Box width="100%">
       <DashboardNavbar>
         <H5 color="#959599">
-          Content
+          {translate('dashboard.content')}
         </H5>
-        <Link to="/" as={Button}>
-          <Box mr=".375rem" display="inline" position="relative" top={3}><FiPower /></Box>
-          Output Page
-        </Link>
+        <Box display="flex">
+          <Box mx="s">
+            <LanguageSwitcher />
+          </Box>
+          <Box minWidth="150px" mx="xs">
+            <Link to="/" as={Button}>
+              <Box mr=".375rem" display="inline" position="relative" top={3}><FiPower /></Box>
+              {translate('dashboard.navbar.output.page')}
+            </Link>
+          </Box>
+        </Box>
       </DashboardNavbar>
       <Box>
         {/* Date Field */}
         <Box display="flex" pt="m" style={{ flexWrap: "wrap", borderBottom: 'solid 1px #efefef' }}>
           <Box p="m" width={[ 1, '25%' ]} style={{ textAlign: 'right' }}>
-            <H6 m="none">Date Field:</H6>
-            <Paragraph mt="s" fontSize={0}>Select a day from the calendar to update the Output Page Date.</Paragraph>
+            <H6 m="none">{translate('dashboard.content.date.field.label')}</H6>
+            <Paragraph mt="s" fontSize={0}>
+              {translate('dashboard.content.date.field.helper')}
+            </Paragraph>
           </Box>
           <Box width={[ 1, '50%' ]} style={{ borderLeft: 'solid 1px #efefef' }}>
-            <H6 px="22px">Selected date: <Span fontWeight={900}>{date.toISOString().split('T')[0]}</Span></H6>
-            <DayPicker onDayClick={(e) => setDate(e)} />
+            <H6 px="22px">{translate('dashboard.content.selected.date')} <Span fontWeight={900}>{localeUtils.formatDay(date, locale)}</Span></H6>
+            <DayPicker onDayClick={(e) => setDate(e)} locale={locale} localeUtils={localeUtils}  />
           </Box>
         </Box>
         {/* Editor Field */}
         <Box display="flex" style={{ flexWrap: "wrap" }}>
           <Box p="m" width={[ 1, '25%' ]} style={{ textAlign: 'right' }}>
             <H6 m="none">Text Field: </H6>
-            <Paragraph mt="s" fontSize={0}>Edits the paragraph message from the Output Page.</Paragraph>
+            <Paragraph mt="s" fontSize={0}>{translate('dashboard.content.text.field.helper')}</Paragraph>
           </Box>
           <Box width={[ 1, '300px' ]} p="22px" style={{ borderLeft: '1px solid rgba(0,0,0,.125)' }}>
-            {/* <select defaultValue={locale} onChange={({ target }) => setLanguage(target.value)}>
-              {availableLanguages.map((language) => {
-                return <option key={language} value={language}>{language}</option>;
-              })}
-            </select> */}
             {availableLanguages.map((lang) => {
-              return language === lang ? (
+              return locale === lang ? (
                 <Box key={lang}>
                   <TextArea 
                     key={lang}

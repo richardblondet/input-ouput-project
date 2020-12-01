@@ -334,17 +334,18 @@ Button.defaultProps = {
   borderRadius: '.25rem'
 }
 
-  /* display: inline-block;
-  border: none;
-  outline: none;
-  font: inherit;
-  position: relative;
-  min-width: 250px;
-  max-width: 100%;
-  font-size: ${props => props.theme.text.button.fontSize};
-  font-weight: ${props => props.theme.text.button.fontWeight};
-  padding: 10px 20px;
-  ${buttonTextDecoration}
-  ${color}
-  ${space}
-  ${buttonVariants} */
+export const Select = styled('select')`
+  display: block;
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: transparent;
+  background-clip: padding-box;
+  border: 0 solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+`;

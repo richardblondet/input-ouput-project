@@ -4,6 +4,8 @@ import { FiCalendar } from 'react-icons/fi';
 import VanillaTilt from 'vanilla-tilt';
 import { Box } from './Utils';
 import { Typography } from './Typography';
+import { useIntl } from '../store/hooks';
+import { i18nTools } from '../store/utils';
 
 /**
  * calendar icon
@@ -15,7 +17,7 @@ import { Typography } from './Typography';
  */
 const boxShadow = () => 'box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.1);';
 const borderRadius = () => 'border-radius: 7px;';
-const { H2, H6, Span } = Typography;
+const { H4, H6, Span } = Typography;
 
 const DateContainer = styled(Box).attrs({
   backgroundColor: '#ffffff',
@@ -35,12 +37,10 @@ const DateIcon = styled(Box).attrs({
 `;
 
 export default ({ date }:{ date: Date }) => {
+  const { locale, translate } = useIntl();
+  const { localeUtils } = i18nTools();
+  
   const tiltRef = useRef(null);
-  const day = date.getDate();
-  const month = date.getMonth();
-  const year = date.getFullYear();
-
-  const formatted = `${day}.${month}.${year}`;
   
   useLayoutEffect(() => {
     VanillaTilt.init((tiltRef.current as unknown as HTMLElement));
@@ -57,11 +57,11 @@ export default ({ date }:{ date: Date }) => {
           </Box>
           <Box p="s" flexGrow={1} alignSelf="center">
             <H6 m="none" color="secondary-tints.300" fontWeight="900">
-              Date:
+              {translate('home.hero.date.label')}
             </H6>
-            <H2 m="none" color="secondary-darkened" fontWeight="900">
-              { formatted }
-            </H2>
+            <H4 m="none" color="secondary-darkened" fontWeight="900">
+              {localeUtils.formatDay(date, locale)}
+            </H4>
           </Box>
         </Box>
       </DateContainer>

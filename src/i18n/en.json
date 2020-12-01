@@ -1,3 +1,19 @@
 {
-  "app.getting.started": "A Create React App Typescript Starter Kit. v%VERSION%"
+  "app.getting.started": "A Create React App Typescript Starter Kit. v%VERSION%",
+  "home.hero.heading.pre.project": "Welcome to the",
+  "home.hero.heading.post.project": "Project",
+  "home.hero.input.page.button": "Input Page",
+  "home.hero.date.label": "Selected date:",
+  "home.about.heading": "About",
+  "home.about.description": "was built as a React test project for a recruitment process.",
+  "home.about.view.on.github.link": "View on Github.",
+  "home.author.profession": "Fullstack freelance developer",
+  "dashboard.content": "Content",
+  "dashboard.content.date.field.label": "Date field:",
+  "dashboard.content.selected.date": "Selected date:",
+  "dashboard.content.date.field.helper": "Select a day from the calendar to update the Output Page Date.",
+  "dashboard.content.text.field.label": "Text field:", 
+  "dashboard.content.text.field.helper": "Edits the paragraph message from the Output Page.", 
+  "dashboard.theme": "Theme",
+  "dashboard.navbar.output.page": "Ouput Page"
 }

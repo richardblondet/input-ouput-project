@@ -2,6 +2,7 @@ import React from 'react';
 import { FiPower } from 'react-icons/fi';
 import styled from 'styled-components';
 import { color, ColorProps } from 'styled-system';
+import LanguageSwitcher from '../components/LanguageSwitcher';
 import { ThemePreviewer, ThemeOptionComponent } from '../components/ThemeUtils';
 import { Typography } from '../components/Typography';
 import { Box, Button, ButtonPrimitive, DashboardNavbar, text, TextPrimitive } from '../components/Utils';
@@ -52,10 +53,17 @@ const DashboardTheme = () => {
         <H5 color="#959599">
           Theme
         </H5>
-        <Link to="/" as={Button}>
-          <Box mr=".375rem" display="inline" position="relative" top={3}><FiPower /></Box>
-          Output Page
-        </Link>
+        <Box display="flex">
+          <Box mx="s">
+            <LanguageSwitcher />
+          </Box>
+          <Box minWidth="150px" mx="xs">
+            <Link to="/" as={Button}>
+              <Box mr=".375rem" display="inline" position="relative" top={3}><FiPower /></Box>
+              Output Page
+            </Link>
+          </Box>
+        </Box>
       </DashboardNavbar>
       <Box display="flex" style={{ flexWrap: "wrap", borderBottom: 'solid 1px #efefef' }} >
         {/* Theme list column */}
