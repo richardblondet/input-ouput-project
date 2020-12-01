@@ -1,0 +1,2 @@
+(this["webpackJsonpinput-ouput-project"]=this["webpackJsonpinput-ouput-project"]||[]).push([[10],{79:function(t,n,p){"use strict";p.r(n);var u=p(2);p(1);n.default=function(){return Object(u.jsx)("div",{className:"App",children:Object(u.jsx)("h1",{children:"404 not found"})})}}}]);
+//# sourceMappingURL=10.70401bb6.chunk.js.map

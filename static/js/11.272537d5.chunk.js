@@ -1,0 +1,2 @@
+(this["webpackJsonpinput-ouput-project"]=this["webpackJsonpinput-ouput-project"]||[]).push([[11],{77:function(e,t,c){"use strict";c.r(t);var p=c(2);c(1);t.default=function(){return Object(p.jsx)("div",{className:"App",children:Object(p.jsx)("header",{className:"App-header updated",children:Object(p.jsx)("p",{children:Object(p.jsx)("code",{children:"About Page"})})})})}}}]);
+//# sourceMappingURL=11.272537d5.chunk.js.map

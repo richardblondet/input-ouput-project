@@ -1,0 +1,1 @@
+{"version":3,"sources":["routes/403.tsx"],"names":["Page403","className"],"mappings":"wJAUeA,UARC,WACd,OACE,qBAAKC,UAAU,MAAf,SACE","file":"static/js/9.b151a5d1.chunk.js","sourcesContent":["import React from 'react';\n\nconst Page403 = () => {\n  return (\n    <div className=\"App\">\n      <h1>403 Forbidden</h1>\n    </div>\n  );\n}\n\nexport default Page403;\n"],"sourceRoot":""}

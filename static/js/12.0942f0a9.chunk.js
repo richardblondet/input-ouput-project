@@ -1,0 +1,2 @@
+(this["webpackJsonpinput-ouput-project"]=this["webpackJsonpinput-ouput-project"]||[]).push([[12],{78:function(t,e,s){"use strict";s.r(e);var p=s(2);s(1);e.default=function(){return Object(p.jsxs)("div",{className:"App",children:[Object(p.jsx)("h1",{children:"Login"}),Object(p.jsx)("div",{children:Object(p.jsxs)("form",{children:[Object(p.jsx)("input",{type:"text"}),Object(p.jsx)("input",{type:"password"}),Object(p.jsx)("input",{type:"submit"})]})})]})}}}]);
+//# sourceMappingURL=12.0942f0a9.chunk.js.map
