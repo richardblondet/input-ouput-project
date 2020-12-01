@@ -85,6 +85,7 @@ const DashboardContent = () => {
                     name={`text[${lang}]`} 
                     onChange={(e) => saveEditorField(lang, e.target.value)} 
                     rows={5}
+                    spellCheck={true}
                     value={(editor[lang] as string)} />
                 </Box>
               ) : null
