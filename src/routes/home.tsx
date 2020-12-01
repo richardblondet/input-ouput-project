@@ -79,10 +79,12 @@ const Home = () => {
               <Paragraph color="#444444" textAlign="center">
                 <Span color="primary">input</Span>/<Span color="primary">output</Span> {translate('home.about.description')}
               </Paragraph>
-              <Link to="https://github.com/richardblondet/input-ouput-project" fontFamily="mono" textAlign="center">
-                <Box mr=".375rem" display="inline" position="relative" top={3}><FiGithub /></Box>
-                {translate('home.about.view.on.github.link')}
-              </Link>
+              <Paragraph fontFamily="mono" textAlign="center">
+                <a href="https://github.com/richardblondet/input-ouput-project" target="_blank" style={{ textAlign: 'center' }}>
+                  <Box mr=".375rem" display="inline" position="relative" top={3}><FiGithub /></Box>
+                  {translate('home.about.view.on.github.link')}
+                </a>
+              </Paragraph>
             </Box>
             <Box width={[ 1 ]} p="m">
               <Box width="300px" margin="0 auto">
