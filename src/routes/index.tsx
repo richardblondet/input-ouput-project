@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import { Route, BrowserRouter, Switch } from 'react-router-dom';
+import { Route, BrowserRouter, Switch, HashRouter } from 'react-router-dom';
 import { Loading } from '../components/Loaders';
 import { PrivateRoute } from '../components/Utils';
 
@@ -31,7 +31,7 @@ const Dashboard = lazy(() => import('./dashboard'));
 
 /** Routes Component */
 const Routes = () => (
-  <BrowserRouter>
+  <HashRouter basename={process.env.PUBLIC_URL}>
     <Suspense fallback={<Loading />}>
       <Switch>
         {/* Public Routes */}
@@ -50,7 +50,7 @@ const Routes = () => (
         <Route component={Page404} />
       </Switch>
     </Suspense>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 export default Routes;
