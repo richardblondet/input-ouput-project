@@ -17,7 +17,7 @@ import { i18nTools } from '../store/utils';
  */
 const boxShadow = () => 'box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.1);';
 const borderRadius = () => 'border-radius: 7px;';
-const { H4, H6, Span } = Typography;
+const { H5, H6, Span } = Typography;
 
 const DateContainer = styled(Box).attrs({
   backgroundColor: '#ffffff',
@@ -59,9 +59,9 @@ export default ({ date }:{ date: Date }) => {
             <H6 m="none" color="secondary-tints.300" fontWeight="900">
               {translate('home.hero.date.label')}
             </H6>
-            <H4 m="none" color="secondary-darkened" fontWeight="900">
+            <H5 m="none" color="secondary-darkened" fontWeight="900">
               {localeUtils.formatDay(date, locale)}
-            </H4>
+            </H5>
           </Box>
         </Box>
       </DateContainer>

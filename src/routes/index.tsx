@@ -31,7 +31,7 @@ const Dashboard = lazy(() => import('./dashboard'));
 
 /** Routes Component */
 const Routes = () => (
-  <HashRouter basename={process.env.PUBLIC_URL}>
+  <BrowserRouter>
     <Suspense fallback={<Loading />}>
       <Switch>
         {/* Public Routes */}
@@ -50,7 +50,7 @@ const Routes = () => (
         <Route component={Page404} />
       </Switch>
     </Suspense>
-  </HashRouter>
+  </BrowserRouter>
 );
 
 export default Routes;
